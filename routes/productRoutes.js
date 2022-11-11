@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const API = require("../controllers/api");
 const multer = require('multer');
+// const passport = require('passport');
+
 
 let storage = multer.diskStorage({
     destination: function(req, file, cb){
@@ -21,5 +23,13 @@ router.get("/:id",API.fetchPostByID);
 router.post("/",upload, API.createPost);
 router.patch("/:id",upload, API.updatePost);
 router.delete("/:id",API.deletePost);
+
+// router.post('/register',API.userRegister);
+// router.post('/login',API.userLogin);
+
+// router.get('/profile',API.fetchAllUser);
+
+//passport-http-bearer
+
 
 module.exports = router;
